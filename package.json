@@ -1,0 +1,19 @@
+{
+  "name": "zachs-number-guesser",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel index.html",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@hyperapp/html": "^1.1.1",
+    "@hyperapp/random": "^0.0.0",
+    "hyperapp": "^2.0.0-beta.25"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "jest": "^24.9.0"
+  }
+}
