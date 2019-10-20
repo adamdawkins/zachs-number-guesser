@@ -7,8 +7,8 @@
 
 ## v0.0.2
 [x] It disables previous guesses
-[ ] It has a number of lives
-[ ] It presents game over if you guessed wrong the same time as the number of lives
+[x] It has a number of lives
+[x] It presents game over if you guessed wrong the same time as the number of lives
 
 ## v0.0.3
 [ ] It allows you to ask </> questions
