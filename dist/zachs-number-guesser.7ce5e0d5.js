@@ -986,6 +986,11 @@ function wbr(attributes, children) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+//    contains :: ([a], a) -> Boolean
+var contains = function contains(list, item) {
+  return list.indexOf(item) > -1;
+};
+
 //    range :: (Int, Int) -> [Int]
 var range = function range(from, to) {
   var result = [];
@@ -999,6 +1004,7 @@ var range = function range(from, to) {
   return result;
 };
 
+exports.contains = contains;
 exports.range = range;
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
@@ -1038,19 +1044,24 @@ var SetChosenNumber = function SetChosenNumber(state, chosenNumber) {
 
 var GuessNumber = function GuessNumber(state, number) {
   return _extends({}, state, {
+    guessedNumbers: state.guessedNumbers.concat([number]),
     youWin: number === state.chosenNumber
   });
 };
 
 // VIEWS
-var NumberButton = function NumberButton(number) {
-  return (0, _html.button)({ onclick: [GuessNumber, number] }, number);
+var NumberButton = function NumberButton(state, number) {
+  return (0, _html.button)({
+    disabled: (0, _utilities.contains)(state.guessedNumbers, number),
+    onclick: [GuessNumber, number]
+  }, number);
 };
 
 // THE APP
 (0, _hyperapp.app)({
   init: [{
     numbers: NUMBERS,
+    guessedNumbers: [],
     youWin: false
   }, getRandomNumber(NUMBERS, SetChosenNumber)],
   view: function view(state) {
@@ -1059,7 +1070,9 @@ var NumberButton = function NumberButton(number) {
       return (0, _html.h1)("YOU WIN!!!!");
     }
 
-    return (0, _html.div)({}, state.numbers.map(NumberButton));
+    return (0, _html.div)({}, state.numbers.map(function (n) {
+      return NumberButton(state, n);
+    }));
   },
   node: document.getElementById("app")
 });

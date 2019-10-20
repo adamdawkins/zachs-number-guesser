@@ -1,3 +1,6 @@
+//    contains :: ([a], a) -> Boolean
+const contains = (list, item) => list.indexOf(item) > -1;
+
 //    range :: (Int, Int) -> [Int]
 const range = (from, to) => {
   const result = [];
@@ -11,4 +14,4 @@ const range = (from, to) => {
   return result;
 };
 
-export { range };
+export { contains, range };

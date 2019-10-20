@@ -6,9 +6,9 @@
 [x] It tells you if you guessed right
 
 ## v0.0.2
+[x] It disables previous guesses
 [ ] It has a number of lives
 [ ] It presents game over if you guessed wrong the same time as the number of lives
-[ ] It disables previous guesses
 
 ## v0.0.3
 [ ] It allows you to ask </> questions
